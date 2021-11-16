@@ -4,22 +4,33 @@ import {
   LeftContainer,
   RightContainer,
 } from 'modules/book/style';
-import BookService from 'modules/shared/services/BookService';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { useLocation } from 'react-router';
 import BookInfoItem from 'modules/book/components/BookInfoItem';
 import Header from 'modules/shared/components/Header';
 import history from 'modules/shared/history';
+import { BooksContext } from 'modules/shared/contexts/BooksContext';
 
 export default function Book(props) {
   const search = useLocation().pathname;
   const id = search.split('/book/')[1];
   const [book, setBook] = useState({});
+  const { books, setBooks } = useContext(BooksContext);
   const [editMode, setEditMode] = useState(false);
 
   useEffect(() => {
-    setBook(BookService.getById(id));
+    setBook(books.find((b) => String(b.id) === String(id)));
   }, []);
+
+  const onDeleteButtonClick = () => {
+    const newBooks = [...books];
+    newBooks.splice(
+      newBooks.findIndex((b) => String(b.id) === String(id)),
+      1
+    );
+    setBooks(newBooks);
+    history.push('/');
+  };
 
   return (
     <>
@@ -45,7 +56,7 @@ export default function Book(props) {
               >
                 Editar
               </button>
-              <button>Excluir Livro</button>
+              <button onClick={onDeleteButtonClick}>Excluir Livro</button>
               <div className="details-wrapper">
                 <BookInfoItem
                   value={book.title}

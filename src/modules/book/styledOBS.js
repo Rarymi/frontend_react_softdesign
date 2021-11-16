@@ -32,13 +32,22 @@ export const BtnLogin = styled(BtnLoginIcons)`
   }
 `;
 
-export const BtnLogout = styled.button`
+export const BrownButton = styled.button`
   background-color: #2b1a00;
   color: bisque;
   letter-spacing: 4px;
   text-transform: uppercase;
+  border: none;
+  height: 30px;
+  border-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 `;
-export const BtnNewBook = styled(BtnLogout)``;
+
+export const BtnLogout = styled(BrownButton)``;
+export const BtnNewBook = styled(BrownButton)`
+  width: 215px;
+  align-self: flex-end;
+`;
 
 export const BtnCreate = styled(BtnLoginIcons)`
   background-color: #2b1a00;

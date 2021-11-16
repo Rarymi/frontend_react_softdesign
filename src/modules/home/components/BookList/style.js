@@ -12,6 +12,7 @@ export const Container = styled.div`
 
   .search {
     width: 70%;
+    align-self: center;
   }
 `;
 
