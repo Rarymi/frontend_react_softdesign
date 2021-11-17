@@ -1,5 +1,5 @@
+import { BtnNewBook } from 'modules/book/style';
 import history from 'modules/shared/history';
-import { BtnNewBook } from 'modules/book/styledOBS';
 
 export default function NewBookButton() {
   return (

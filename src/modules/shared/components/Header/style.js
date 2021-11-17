@@ -1,3 +1,4 @@
+import { BrownButton } from 'modules/shared/style';
 import styled from 'styled-components';
 
 export const TheHeader = styled.header`
@@ -23,6 +24,7 @@ export const TheHeader = styled.header`
     height: 100%;
     margin-left: -5px;
     width: 100%;
+    justify-content: flex-end;
   }
 
   .logo {
@@ -33,3 +35,4 @@ export const TheHeader = styled.header`
     }
   }
 `;
+export const BtnLogout = styled(BrownButton)``;

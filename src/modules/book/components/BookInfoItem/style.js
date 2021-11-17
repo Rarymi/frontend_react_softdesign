@@ -6,4 +6,8 @@ export const Container = styled.div`
   .book-info {
     font-size: 24px;
   }
+
+  input {
+    margin-top: 4px;
+  }
 `;

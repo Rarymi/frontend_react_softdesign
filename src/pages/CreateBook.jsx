@@ -1,13 +1,13 @@
-import { CreateContainer } from 'modules/createBook/style';
+import { CreateContainer } from 'modules/book/style';
 import Create from 'assets/images/Create.svg';
-import { BtnCreate } from 'modules/book/styledOBS';
 import history from 'modules/shared/history';
-import Message from 'modules/shared/components/Message';
 import { useContext, useState } from 'react';
 import { BooksContext } from 'modules/shared/contexts/BooksContext';
+import { MessageContext } from 'modules/shared/contexts/MessageContext';
 
 export default function CreateBook() {
   const { books, setBooks } = useContext(BooksContext);
+  const { setIsVisible } = useContext(MessageContext);
   const [titleState, setTitleState] = useState('');
   const [authorState, setAuthorState] = useState('');
 
@@ -20,6 +20,7 @@ export default function CreateBook() {
         id: books[books.length - 1].id + 1,
       },
     ]);
+    setIsVisible(true);
     history.push('/', { message: 'Livro criado com sucesso!' });
   };
 
@@ -54,13 +55,13 @@ export default function CreateBook() {
               value={authorState}
             />
           </div>
-          <BtnCreate
+          <button
             onClick={() => {
               createBook();
             }}
           >
             Criar
-          </BtnCreate>
+          </button>
         </div>
       </div>
     </CreateContainer>

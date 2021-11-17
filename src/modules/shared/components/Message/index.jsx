@@ -1,28 +1,24 @@
-import { useState, useEffect } from 'react';
+import { MessageContext } from 'modules/shared/contexts/MessageContext';
+import { useEffect, useContext } from 'react';
 import { MessageContainer } from './style';
 
-export default function Message({ type, msg }) {
-  const [visible, setVisible] = useState(false);
+export default function Message({ message }) {
+  const { isVisible, setIsVisible } = useContext(MessageContext);
 
   useEffect(() => {
-    if (!msg) {
-      setVisible(false);
-      return;
-    }
-    setVisible(true);
+    if (!isVisible || !message) return;
 
     const timer = setTimeout(() => {
-      setVisible(false);
+      setIsVisible(false);
     }, 2000);
-
     return () => clearTimeout(timer);
-  }, [msg]);
+  }, [isVisible]);
 
   return (
     <>
-      {visible && (
+      {isVisible && (
         <MessageContainer>
-          <div>{msg}</div>
+          <div>{message}</div>
         </MessageContainer>
       )}
     </>

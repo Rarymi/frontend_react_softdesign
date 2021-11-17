@@ -2,7 +2,7 @@ import { Container, ListContainer, ListItem } from './style';
 import history from 'modules/shared/history';
 import Paginator from '../Paginator';
 import NewBookButton from '../NewBookButton';
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import { BooksContext } from 'modules/shared/contexts/BooksContext';
 import Message from 'modules/shared/components/Message';
 
@@ -44,6 +44,7 @@ export default function BookList() {
       </ListContainer>
       <Paginator />
       <NewBookButton />
+      <Message message={'Livro Criado com Sucesso!'} />
     </Container>
   );
 }

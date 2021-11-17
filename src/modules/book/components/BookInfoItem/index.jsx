@@ -1,13 +1,6 @@
-import { useEffect } from 'react';
-import { useState } from 'react';
 import { Container } from './style';
 
-export default function BookInfoItem({ label, value, editable }) {
-  const [inputValue, setInputValue] = useState(value);
-
-  useEffect(() => {
-    setInputValue(value);
-  }, [value]);
+export default function BookInfoItem({ label, value, editable, setValue }) {
   return (
     <Container>
       <span>{label}:</span>
@@ -16,8 +9,8 @@ export default function BookInfoItem({ label, value, editable }) {
       <input
         disabled={!editable}
         className="book-info"
-        value={inputValue}
-        onInput={(e) => setInputValue(e.target.value)}
+        value={value}
+        onInput={(e) => setValue(e.target.value)}
       />
       <br />
     </Container>

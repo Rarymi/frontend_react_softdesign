@@ -1,16 +1,16 @@
+import { BrownButton } from 'modules/shared/style';
 import styled from 'styled-components';
 
 export const Container = styled.main`
   background-color: #faf0e1;
-  width: 100vw;
-  height: 100vh;
+  min-width: 100vw;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
 
   .left-login {
-    width: 50vw;
-    height: 100vh;
+    width: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -27,11 +27,15 @@ export const Container = styled.main`
   }
 
   .right-login {
-    width: 50vw;
+    width: 50%;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+
+    @media screen and (max-width: 720px) {
+      width: 100%;
+    }
   }
 
   .card-login {
@@ -44,13 +48,17 @@ export const Container = styled.main`
     background-color: #f2e1c7;
     border-radius: 20px;
     box-shadow: 0px 10px 20px #ebdcc5;
+
+    @media screen and (max-width: 720px) {
+      width: 100%;
+    }
   }
 
   .card-login > h1 {
     color: #472b01;
     font-weight: 800;
     margin: 0;
-    font-size: 2vw;
+    font-size: 1.2rem;
   }
 
   .form--input {
@@ -82,4 +90,8 @@ export const Container = styled.main`
     color: #472b01;
     margin-bottom: 10px;
   }
+`;
+
+export const LoginButton = styled(BrownButton)`
+  width: 100%;
 `;

@@ -24,6 +24,12 @@ export const ListContainer = styled.div`
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
+
+  @media screen and (max-width: 720px) {
+    flex-direction: column;
+    justify-content: unset;
+    flex-wrap: unset;
+  }
 `;
 
 export const ListItem = styled.div`
@@ -40,6 +46,11 @@ export const ListItem = styled.div`
   align-items: center;
   flex-direction: column;
   border-radius: 16px;
+
+  @media screen and (max-width: 720px) {
+    width: 100%;
+    height: 300px;
+  }
 
   .book-description-container {
     width: 100%;
