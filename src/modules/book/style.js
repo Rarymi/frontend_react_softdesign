@@ -2,8 +2,8 @@ import { BrownButton } from 'modules/shared/style';
 import styled from 'styled-components';
 
 export const Container = styled.main`
-  width: 100%;
-  height: 100%;
+  min-width: 100vw;
+  min-height: 100vh;
   padding: 24px;
   display: flex;
   justify-content: center;
