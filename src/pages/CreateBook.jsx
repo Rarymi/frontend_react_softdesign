@@ -87,7 +87,6 @@ export default function CreateBook() {
           <div className="input--create">
             <label htmlFor="numerodepaginas">Número de Páginas: </label>
             <input
-              required
               type="number"
               placeholder="Número de Páginas"
               onChange={(e) => {
