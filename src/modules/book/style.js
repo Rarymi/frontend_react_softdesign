@@ -245,3 +245,5 @@ export const CreateContainer = styled.main`
     padding: 25px;
   }
 `;
+
+export const BtnCreate = styled(BrownButton)``;
