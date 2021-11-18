@@ -4,6 +4,9 @@ import history from 'modules/shared/history';
 import { useContext, useState } from 'react';
 import { BooksContext } from 'modules/shared/contexts/BooksContext';
 import { MessageContext } from 'modules/shared/contexts/MessageContext';
+import { ScreenSizeContext } from 'modules/shared/contexts/ScreenSizeContext';
+
+import { MdKeyboardBackspace } from 'react-icons/md';
 
 export default function CreateBook() {
   const { books, setBooks } = useContext(BooksContext);
@@ -13,6 +16,7 @@ export default function CreateBook() {
   const [countryState, setCountryState] = useState('');
   const [yearState, setYearState] = useState('');
   const [pagesState, setPagesState] = useState('');
+  const { isMobile } = useContext(ScreenSizeContext);
 
   const createBook = () => {
     setBooks([
@@ -31,14 +35,27 @@ export default function CreateBook() {
   };
 
   return (
-    <CreateContainer className="main-create">
-      <div className="left-create">
-        <h1>Adicione um novo Livro!</h1>
-        <img className="left-login-image" src={Create} alt="" />
-      </div>
+    <CreateContainer className="main-create" isMobile>
+      {!isMobile && (
+        <div className="left-login">
+          <h1>
+            Adicione,
+            <br /> Um novo livro!
+          </h1>
+
+          <img className="left-create-image" src={Create} alt="" />
+        </div>
+      )}
       <div className="right-create">
         <div className="card-create">
-          <h1>Novo Livro</h1>
+          <button
+            className="back-button"
+            onClick={() => {
+              history.push('/');
+            }}
+          >
+            <MdKeyboardBackspace size={isMobile ? '24px' : '30px'} />
+          </button>
           <div className="input--create">
             <label htmlFor="title">Título: </label>
             <input
