@@ -154,60 +154,65 @@ export const BtnNewBook = styled(BrownButton)`
 
 export const CreateContainer = styled.main`
   background-color: #faf0e1;
-  width: 100vw;
-  height: 100vh;
+  min-width: 100vw;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
 
   .left-create {
-    width: 35vw;
-    height: 100vh;
+    width: 40%;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
   }
 
-  .left-create > h1 {
+  .left-login > h1 {
     font-size: 3vw;
     color: #472b01;
   }
 
-  .left-login-image {
+  .left-create-image {
     width: 35vw;
   }
 
   .right-create {
-    width: 65vw;
+    width: 60%;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+
+    @media screen and (max-width: 720px) {
+      width: 100%;
+    }
   }
 
   .card-create {
     width: 60%;
-    height: 70%;
     display: flex;
-    justify-content: space-baseline;
+    justify-content: center;
     align-items: center;
     flex-direction: column;
     padding: 30px 35px;
     background-color: #f2e1c7;
     border-radius: 20px;
     box-shadow: 0px 10px 20px #ebdcc5;
+
+    @media screen and (max-width: 720px) {
+      width: 100%;
+    }
   }
 
   .card-create > h1 {
     color: #472b01;
     font-weight: 800;
     margin: 0;
-    font-size: 2vw;
+    font-size: 1.2rem;
   }
 
-  .input--create,
-  .descricao {
+  .input--create {
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -237,12 +242,17 @@ export const CreateContainer = styled.main`
     margin-bottom: 10px;
   }
 
-  .descricao {
-    font-size: 20px;
-    background-color: #dec9a9;
+  .back-button {
+    height: 30px;
+    cursor: pointer;
     border: none;
-    border-radius: 10px;
-    padding: 25px;
+    font-size: 16px;
+    box-shadow: none;
+    background: none;
+    width: 24px;
+    @media screen and (max-width: 720px) {
+      margin-bottom: 12px;
+    }
   }
 `;
 
