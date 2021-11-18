@@ -12,7 +12,7 @@ export default function Message({ message }) {
       setIsVisible(false);
     }, 2000);
     return () => clearTimeout(timer);
-  }, [isVisible]);
+  }, [isVisible, setIsVisible, message]);
 
   return (
     <>

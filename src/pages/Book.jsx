@@ -34,7 +34,7 @@ export default function Book(props) {
 
   useEffect(() => {
     setBook(books.find((b) => String(b.id) === String(id)));
-  }, []);
+  }, [books, id]);
 
   useEffect(() => {
     setBookTitle(book.title);

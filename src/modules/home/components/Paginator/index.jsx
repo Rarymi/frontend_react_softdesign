@@ -16,7 +16,7 @@ export default function Paginator() {
       );
     }
     setPaginatorButtons(buttons);
-  }, [books]);
+  }, [books, setCurrentPage]);
 
   return (
     <div style={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
